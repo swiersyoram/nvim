@@ -8,4 +8,11 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-vim.cmd("colorscheme kanagawa")
+-- theme
+--vim.cmd("colorscheme papercolor")
+vim.cmd("colorscheme kanagawa-wave")
+
+-- relative line numbers
+vim.opt.relativenumber = true
+
+
