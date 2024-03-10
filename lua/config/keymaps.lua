@@ -32,9 +32,19 @@ vim.api.nvim_set_keymap('n', '<leader>hs', ':split<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>',
 	{ noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>p', '<cmd>%!prettier --stdin-filepath %<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fn', [[:normal gg=G<CR>]], { noremap = true, silent = true })
 
---leave terminal mode
+
+-- leave terminal mode
 vim.api.nvim_set_keymap('t', '<M-x>', [[<C-\><C-n>]], {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<M-t>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<M-a>', '<Cmd>ToggleTermToggleAll<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_option('clipboard', 'unnamedplus')
+
+-- comment lines
+vim.api.nvim_set_keymap('n', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
+
+

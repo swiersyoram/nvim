@@ -70,6 +70,21 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+
+		-- configure java language server
+		lspconfig["java-language-server"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+
+		})
+
+		-- configure jdtls
+		lspconfig["jdtls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+
+		})
+
 		-- configure html server
 		lspconfig["html"].setup({
 			capabilities = capabilities,

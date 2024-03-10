@@ -23,11 +23,14 @@ require("lazy").setup({
 	require("config.treesitter"),
 	require("config.barbar"),
 	require("config.lualine"),
-	require("config.toggleterm"),	
+	require("config.toggleterm"),
+	require("config.nvim-comment"),
 
 	--lsp
 	require("config.lsp-config"),
 	require("config.nvim-cmp"),
 	require("config.mason"),
-	
+
 })
+
+require('nvim_comment').setup()
