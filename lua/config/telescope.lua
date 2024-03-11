@@ -21,10 +21,21 @@ return {
 					},
 				},
 				file_ignore_patterns = {
-					"node_modules"
-				}
+					"node_modules", "build", "coverage", "public"
+				},
 
 			},
+			pickers = {
+				find_files = {
+
+					hidden = true,
+				},
+				live_grep = {
+
+					additional_args = function(_)
+						return { "--hidden" }
+					end
+			}}
 		})
 
 		telescope.load_extension("fzf")

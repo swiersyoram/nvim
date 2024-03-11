@@ -14,5 +14,3 @@ vim.cmd("colorscheme kanagawa-wave")
 
 -- relative line numbers
 vim.opt.relativenumber = true
-
-
