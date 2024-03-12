@@ -25,6 +25,8 @@ require("lazy").setup({
 	require("config.lualine"),
 	require("config.toggleterm"),
 	require("config.nvim-comment"),
+	{'mhinz/vim-signify'},
+	{'HiPhish/rainbow-delimiters.nvim'},
 
 	--lsp
 	require("config.lsp-config"),

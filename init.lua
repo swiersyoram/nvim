@@ -1,5 +1,6 @@
 require("config.lazy")
 require("config.keymaps")
+require("config.open-finder")
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -14,3 +15,4 @@ vim.cmd("colorscheme kanagawa-wave")
 
 -- relative line numbers
 vim.opt.relativenumber = true
+
