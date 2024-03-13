@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.keymaps")
 require("config.open-finder")
+require("config.reload")
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

@@ -55,8 +55,3 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 -- comment lines
 vim.api.nvim_set_keymap('n', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
-
--- reload buffer
-vim.api.nvim_set_keymap('n', '<M-r>', ':e!', opts)
-
-
