@@ -40,7 +40,7 @@ vim.api.nvim_set_keymap('n', '<leader>hs', ':split<CR>', opts)
 -- formatting
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>',
 	{ noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>p', '<cmd>%!prettier --stdin-filepath %<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fp', '<cmd>%!prettier --stdin-filepath %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fn', [[:normal gg=G<CR>]], { noremap = true, silent = true })
 
 
@@ -55,5 +55,8 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 -- comment lines
 vim.api.nvim_set_keymap('n', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>c', [[:CommentToggle<CR>]], { noremap = true, silent = true })
+
+-- reload buffer
+vim.api.nvim_set_keymap('n', '<M-r>', ':e!', opts)
 
 
