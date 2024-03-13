@@ -9,6 +9,14 @@ vim.api.nvim_set_keymap('n', '<M-j>', '<C-w>j', {})
 vim.api.nvim_set_keymap('n', '<M-k>', '<C-w>k', {})
 vim.api.nvim_set_keymap('n', '<M-l>', '<C-w>l', {})
 
+-- navigation
+vim.api.nvim_set_keymap('n', '<M-o>','<S-$>',{})
+vim.api.nvim_set_keymap('n', '<M-i>','0',{})
+vim.api.nvim_set_keymap('n', '<M-[>','<C-o>',{})
+vim.api.nvim_set_keymap('n', '<M-]>','<C-i>',{})
+
+
+
 -- telescope keymaps
 local builtin = require('telescope.builtin')
 

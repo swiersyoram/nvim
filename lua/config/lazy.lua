@@ -25,8 +25,10 @@ require("lazy").setup({
 	require("config.lualine"),
 	require("config.toggleterm"),
 	require("config.nvim-comment"),
-	{'mhinz/vim-signify'},
+	require("config.autopairs"),
+	{'JoosepAlviste/nvim-ts-context-commentstring'},
 	{'HiPhish/rainbow-delimiters.nvim'},
+	{'github/copilot.vim'},
 
 	--lsp
 	require("config.lsp-config"),
@@ -35,4 +37,7 @@ require("lazy").setup({
 
 })
 
-require('nvim_comment').setup()
+require('nvim_comment').setup({
+	hook = function()
+		require('ts_context_commentstring').update_commentstring()
+	end,})
