@@ -12,8 +12,14 @@ vim.opt.termguicolors = true
 
 -- theme
 --vim.cmd("colorscheme papercolor")
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme monokai-pro")
+-- vim.cmd("colorscheme kanagawa-lotus")
 
 -- relative line numbers
 vim.opt.relativenumber = true
+
+vim.opt.ignorecase = true -- Make searches case-insensitive
+vim.opt.smartcase = true  -- Make searches case-sensitive if the query contains uppercase letters
+
+
 

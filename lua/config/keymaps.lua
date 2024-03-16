@@ -11,7 +11,9 @@ vim.api.nvim_set_keymap('n', '<M-l>', '<C-w>l', {})
 
 -- navigation
 vim.api.nvim_set_keymap('n', '<M-o>','<S-$>',{})
+vim.api.nvim_set_keymap('v', '<M-o>','<S-$>',{})
 vim.api.nvim_set_keymap('n', '<M-i>','0',{})
+vim.api.nvim_set_keymap('v', '<M-i>','0',{})
 vim.api.nvim_set_keymap('n', '<M-[>','<C-o>',{})
 vim.api.nvim_set_keymap('n', '<M-]>','<C-i>',{})
 
@@ -40,7 +42,7 @@ vim.api.nvim_set_keymap('n', '<leader>hs', ':split<CR>', opts)
 -- formatting
 vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>',
 	{ noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fp', '<cmd>%!prettier --stdin-filepath %<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fp', ':w <CR> :keepjumps execute "!prettier --write %"| e!<CR><CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fn', [[:normal gg=G<CR>]], { noremap = true, silent = true })
 
 

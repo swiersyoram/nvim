@@ -5,6 +5,9 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
+	opts = {
+		inlay_hints = { enabled = true },
+	},
 	config = function()
 		-- import spconfig plugin
 		local lspconfig = require("lspconfig")
@@ -13,6 +16,7 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap -- for conciseness
+
 
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
@@ -57,6 +61,7 @@ return {
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+			ih.on_attach(client, bufnr)
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -109,6 +114,30 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				javascript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+				typescript = {
+					inlayHints = {
+						includeInlayEnumMemberValueHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayVariableTypeHints = true,
+					},
+				},
+			},
 		})
 
 		-- configure tailwindcss server
@@ -128,20 +157,26 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make language server aware of runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
+			Lua = {
+				-- make the language server recognize "vim" global
+				diagnostics = {
+					globals = { "vim" },
+				},
+				workspace = {
+					-- make language server aware of runtime files
+					library = {
+						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+						[vim.fn.stdpath("config") .. "/lua"] = true,
 					},
 				},
 			},
-		})
-	end,
+		},
+	})
+	-- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+	-- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+	local lsp = vim.lsp
+	lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
+		border = "rounded",
+	})
+end,
 }

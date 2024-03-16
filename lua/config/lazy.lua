@@ -15,7 +15,8 @@ require("lazy").setup({
 	-- theming
 	--	{'rebelot/kanagawa.nvim'}
 	--{'NLKNguyen/papercolor-theme'},
-	{ 'rebelot/kanagawa.nvim' },
+	-- { 'rebelot/kanagawa.nvim' },
+	require("config.monokai"),
 	require("config.alpha"),
 
 	require("config.nvim-tree"),
@@ -25,10 +26,13 @@ require("lazy").setup({
 	require("config.lualine"),
 	require("config.toggleterm"),
 	require("config.nvim-comment"),
-	require("config.autopairs"),
-	{'JoosepAlviste/nvim-ts-context-commentstring'},
-	{'HiPhish/rainbow-delimiters.nvim'},
-	{'github/copilot.vim'},
+	{ 'JoosepAlviste/nvim-ts-context-commentstring' },
+	-- { 'HiPhish/rainbow-delimiters.nvim' },
+	{ 'github/copilot.vim' },
+	-- { 'simrat39/inlay-hints.nvim' },
+
+
+
 
 	--lsp
 	require("config.lsp-config"),
@@ -40,4 +44,5 @@ require("lazy").setup({
 require('nvim_comment').setup({
 	hook = function()
 		require('ts_context_commentstring').update_commentstring()
-	end,})
+	end,
+})

@@ -22,6 +22,7 @@ return {
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
+				border='rounded'
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
@@ -31,6 +32,7 @@ return {
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
+				border='rounded'
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
