@@ -26,13 +26,13 @@ require("lazy").setup({
 	require("config.lualine"),
 	require("config.toggleterm"),
 	require("config.nvim-comment"),
+	require("config.autopairs"),
+	require("config.fugitive"),
+	require('config.git-signs'),
 	{ 'JoosepAlviste/nvim-ts-context-commentstring' },
 	-- { 'HiPhish/rainbow-delimiters.nvim' },
 	{ 'github/copilot.vim' },
 	-- { 'simrat39/inlay-hints.nvim' },
-
-
-
 
 	--lsp
 	require("config.lsp-config"),

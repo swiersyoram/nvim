@@ -57,11 +57,12 @@ return {
 			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
 			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+			keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-			ih.on_attach(client, bufnr)
+		
+
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -114,30 +115,6 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			settings = {
-				javascript = {
-					inlayHints = {
-						includeInlayEnumMemberValueHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayVariableTypeHints = true,
-					},
-				},
-				typescript = {
-					inlayHints = {
-						includeInlayEnumMemberValueHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayVariableTypeHints = true,
-					},
-				},
-			},
 		})
 
 		-- configure tailwindcss server
@@ -172,11 +149,15 @@ return {
 			},
 		},
 	})
-	-- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-	-- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
 	local lsp = vim.lsp
 	lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
 	})
+	lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
+	lsp.diagnostic.on_publish_diagnostics, {
+		border="rounded"
+	}
+	)
 end,
 }
