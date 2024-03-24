@@ -17,7 +17,7 @@ return {
 					i = {
 						["<M-k>"] = actions.move_selection_previous, -- move to prev result
 						["<M-j>"] = actions.move_selection_next, -- move to next result
-						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<M-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
 				},
 				file_ignore_patterns = {

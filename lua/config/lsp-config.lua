@@ -77,6 +77,13 @@ return {
 		end
 
 		-- configure json language server
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+
+		})
+
+		-- configure json language server
 		lspconfig["jsonls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,

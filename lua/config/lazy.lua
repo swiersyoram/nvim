@@ -29,6 +29,7 @@ require("lazy").setup({
 	require("config.autopairs"),
 	require("config.fugitive"),
 	require('config.git-signs'),
+	require('config.autotag'),
 	{ 'JoosepAlviste/nvim-ts-context-commentstring' },
 	-- { 'HiPhish/rainbow-delimiters.nvim' },
 	{ 'github/copilot.vim' },
